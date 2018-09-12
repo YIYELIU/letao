@@ -29,3 +29,6 @@ ul {
 .footer .mui-tab-item.mui-active {
   color: darkorange;
 }
+.mui-content {
+  background: #FFF;
+}
