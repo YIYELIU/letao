@@ -34,5 +34,8 @@
 }
 .container .history-top .clear {
   font-size: 14px;
-  font-weight: normal;
+  line-height: normal;
+}
+.container .history-top .mui-icon-trash:before {
+  margin-right: 4px;
 }
