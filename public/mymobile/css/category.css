@@ -52,3 +52,8 @@
 .my-content .category-right ul li a p {
   text-align: center;
 }
+.my-content .category-right ul .noresult {
+  padding: 10px;
+  font-size: 14px;
+  color: #f20;
+}

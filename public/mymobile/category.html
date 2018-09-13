@@ -11,6 +11,7 @@
 	<script src="assets/mui/js/mui.min.js"></script>
 	<!--<script src="assets/artTemplate/template-native.js"></script>-->
 	<script src="assets/zepto/zepto.min.js"></script>
+	<script src="assets/artTemplate/template-native.js"></script>
 	<script src="js/category.js"></script>
 </head>
 <body>
@@ -20,11 +21,11 @@
 		<h1 class="mui-title">乐淘云购</h1>
 	</header>
 	<nav class="mui-bar mui-bar-tab footer">
-		<a class="mui-tab-item mui-active" href="index.html">
+		<a class="mui-tab-item" href="index.html">
 			<span class="mui-icon mui-icon-home"></span>
 			<span class="mui-tab-label">首页</span>
 		</a>
-		<a class="mui-tab-item" href="category.html">
+		<a class="mui-tab-item mui-active" href="category.html">
 			<span class="mui-icon mui-icon-bars"></span>
 			<span class="mui-tab-label">分类</span>
 		</a>
@@ -42,23 +43,9 @@
 			<div class="mui-scroll-wrapper">
 				<div class="mui-scroll">
 					<!--这里放置真实显示的DOM内容-->
-					<div class="links">
-						<a href="#" class="active">运动馆</a>
-						<a href="#">女士馆</a>
-						<a href="#">男士馆</a>
-						<a href="#">户外馆</a>
-						<a href="#">运动馆</a>
-						<a href="#">女士馆</a>
-						<a href="#">男士馆</a>
-						<a href="#">户外馆</a>
-						<a href="#">运动馆</a>
-						<a href="#">女士馆</a>
-						<a href="#">男士馆</a>
-						<a href="#">户外馆</a>
-						<a href="#">运动馆</a>
-						<a href="#">女士馆</a>
-						<a href="#">男士馆</a>
-						<a href="#">户外馆</a>
+					<div class="links" id="links">
+						<!--<a href="#" class="active">运动馆</a>-->
+						<!--这里放模板引擎里写的数据-->
 					</div>
 				</div>
 			</div>
@@ -67,41 +54,41 @@
 			<div class="mui-scroll-wrapper">
 				<div class="mui-scroll">
 					<!--这里放置真实显示的DOM内容-->
-					<ul class="mui-clearfix">
-						<li>
-							<a href="#">
-								<img src="images/brand1.png" alt=""/>
-								<p>耐克</p>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="images/brand2.png" alt=""/>
-								<p>阿迪</p>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="images/brand3.png" alt=""/>
-								<p>三叶草</p>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="images/brand4.png" alt=""/>
-								<p>纽百伦</p>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="images/brand5.png" alt=""/>
-								<p>匡威</p>
-							</a>
-						</li>
+					<ul class="brand-list mui-clearfix">
+						<!--<li>-->
+							<!--<a href="#">-->
+								<!--<img src="images/brand1.png" alt=""/>-->
+								<!--<p>耐克</p>-->
+							<!--</a>-->
+						<!--</li>-->
+
 					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<script id="category-first" type="text/html"><!--此处主要是用html,但也可以用template,看个人习惯-->
+		<!--result就是js里请求后台数据的数组-->
+		<% for(var i=0;i<result.length;i++){ %>
+			<!--给a标签添加一个自定义属性data-id="<%=result[i].id %>"有id的字段 -->
+			<a href="#" data-id="<%=result[i].id %>"><%=result[i].categoryName %></a> <!-- '='就是输出数据-->
+		<% } %>
+	</script>
+	<script id="category-second" type="text/html">
+		<% for(var i=0;i<rows.length;i++){ %>
+			<li>
+				<a href="#">
+					<img src="<%=rows[i].brandLogo %>" alt=""/>
+					<p><%=rows[i].brandName %></p>
+				</a>
+			</li>
+		<% } %>
+
+		<!--点击左侧一级分类,二级分类里没有数据显示时-->
+		<% if(!rows.length){ %>
+			<div class="noresult">暂无数据</div>
+		<% } %>
+	</script>
 </body>
 </html>
