@@ -1,0 +1,54 @@
+.my-content {
+  position: absolute;
+  left: 0;
+  top: 44px;
+  bottom: 50px;
+  width: 100%;
+  background-color: #f5f5f5;
+}
+.my-content .category-left,
+.my-content .category-right {
+  height: 100%;
+  position: relative;
+}
+.my-content .category-left {
+  width: 80px;
+  float: left;
+}
+.my-content .category-left .links {
+  background-color: #fff;
+}
+.my-content .category-left .links a {
+  display: block;
+  color: #000;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  font-size: 14px;
+  border-right: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+.my-content .category-left .links .active {
+  background-color: #f5f5f5;
+  border-right: 1px solid transparent;
+}
+.my-content .category-right {
+  margin-left: 90px;
+}
+.my-content .category-right ul {
+  margin-top: 10px;
+  background-color: #fff;
+}
+.my-content .category-right ul li {
+  width: 33.333%;
+  float: left;
+}
+.my-content .category-right ul li a {
+  display: block;
+}
+.my-content .category-right ul li a img {
+  width: 100%;
+}
+.my-content .category-right ul li a p {
+  text-align: center;
+}
