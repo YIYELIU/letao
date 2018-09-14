@@ -11,7 +11,7 @@
 	<script src="assets/mui/js/mui.min.js"></script>
 	<!--<script src="assets/artTemplate/template-native.js"></script>-->
 	<script src="assets/zepto/zepto.min.js"></script>
-	<script src="assets/artTemplate/template-native.js"></script>
+	<script src="assets/artTemplate/template-web.js"></script>
 	<script src="js/category.js"></script>
 </head>
 <body>
@@ -70,25 +70,30 @@
 
 	<script id="category-first" type="text/html"><!--此处主要是用html,但也可以用template,看个人习惯-->
 		<!--result就是js里请求后台数据的数组-->
-		<% for(var i=0;i<result.length;i++){ %>
-			<!--给a标签添加一个自定义属性data-id="<%=result[i].id %>"有id的字段 -->
-			<a href="#" data-id="<%=result[i].id %>"><%=result[i].categoryName %></a> <!-- '='就是输出数据-->
-		<% } %>
+		<!--这是旧的template语法-->
+		<!--<% for(var i=0;i<result.length;i++){ %>-->
+			<!--&lt;!&ndash;给a标签添加一个自定义属性data-id="<%=result[i].id %>"有id的字段 &ndash;&gt;-->
+			<!--<a href="#" data-id="<%=result[i].id %>"><%=result[i].categoryName %></a> &lt;!&ndash; '='就是输出数据&ndash;&gt;-->
+		<!--<% } %>-->
+		<!--这是最新的templates语法-->
+		{{each result}}
+			<a href="#" data-id="{{$value.id}}">{{$value.categoryName}}</a> <!-- '='就是输出数据-->
+		{{/each}}
 	</script>
 	<script id="category-second" type="text/html">
-		<% for(var i=0;i<rows.length;i++){ %>
+		{{each rows}}
 			<li>
 				<a href="#">
-					<img src="<%=rows[i].brandLogo %>" alt=""/>
-					<p><%=rows[i].brandName %></p>
+					<img src="{{$value.brandLogo}}" alt=""/>
+					<p>{{$value.brandName}}</p>
 				</a>
 			</li>
-		<% } %>
+		{{/each}}
 
 		<!--点击左侧一级分类,二级分类里没有数据显示时-->
-		<% if(!rows.length){ %>
+		{{if !rows.length}}
 			<div class="noresult">暂无数据</div>
-		<% } %>
+		{{/if}}
 	</script>
 </body>
 </html>
