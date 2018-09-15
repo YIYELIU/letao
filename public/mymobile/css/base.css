@@ -20,7 +20,8 @@ ul {
 .myheader {
   background: #006699;
 }
-.myheader .mui-title {
+.myheader .mui-title,
+.myheader .mui-icon {
   color: #fff;
 }
 .footer .mui-tab-item {

@@ -1,14 +1,20 @@
-.filter {
+#refreshContainer {
+  position: absolute;
+  left: 0;
+  top: 44px;
+  bottom: 50px;
+}
+#refreshContainer .filter {
   text-align: center;
   width: 94%;
   margin: 10px auto 10px auto;
 }
-.filter div {
+#refreshContainer .filter div {
   height: 35px;
   line-height: 35px;
   font-size: 14px;
   background-color: #efeff4;
 }
-.filter .mui-icon {
+#refreshContainer .filter .mui-icon {
   font-size: 12px;
 }
