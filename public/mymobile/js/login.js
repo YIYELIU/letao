@@ -37,7 +37,7 @@ $(function () {
                 $('#login-Btn').html('正在登录...');
             },
             success: function (res) {
-                //console.log(res);
+                console.log(res);
                 mui.toast('登陆成功');
                 $('#login-Btn').html('登录');
 

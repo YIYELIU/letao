@@ -14,11 +14,11 @@ $(function () {
 
     $('#register-btn').on('tap', function () {
 
-        var username = $('[name="username"]').val();
-        var mobile = $('[name="mobile"]').val();
-        var password = $('[name="password"]').val();
-        var againPass = $('[name="againPass"]').val();
-        var vCode = $('[name="vCode"]').val();
+        var username = $('[name="username"]').val().trim();
+        var mobile = $('[name="mobile"]').val().trim();
+        var password = $('[name="password"]').val().trim();
+        var againPass = $('[name="againPass"]').val().trim();
+        var vCode = $('[name="vCode"]').val().trim();
 
 
         //验证用户名
@@ -74,7 +74,7 @@ $(function () {
             url: '/user/vCode',
             type: 'get',
             success: function (res) {
-                console.log(res);
+                console.log(res.vCode);
             }
         })
 
