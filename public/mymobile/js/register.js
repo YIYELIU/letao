@@ -51,6 +51,12 @@ $(function () {
             },
             success: function (res) {
                 console.log(res);
+                mui.toast('注册成功');
+
+
+                setTimeout(function () {
+                    location.href = 'login.html';
+                }, 2000)
             }
         })
 
@@ -68,12 +74,7 @@ $(function () {
             url: '/user/vCode',
             type: 'get',
             success: function (res) {
-                //console.log(res);
-                alert('注册成功');
-
-                setTimeout(function () {
-                    location.href = 'login.html';
-                }, 2000)
+                console.log(res);
             }
         })
 
