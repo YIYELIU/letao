@@ -11,10 +11,11 @@
 	<link rel="stylesheet" href="css/base.css">
 	<script src="assets/zepto/zepto.min.js"></script>
 	<script src="assets/mui/js/mui.min.js"></script>
-	<!--<script src="assets/mui/js/mui.picker.js"></script>-->
-	<!--<script src="assets/mui/js/mui.poppicker.js"></script>-->
+	<script src="assets/mui/js/mui.picker.js"></script>
+	<script src="assets/mui/js/mui.poppicker.js"></script>
+	<script src="assets/artTemplate/template-web.js"></script>
 	<script src="js/public.js"></script>
-	<!--<script src="js/city.js"></script>-->
+	<script src="js/city.js"></script>
 	<script src="js/addAddress.js"></script>
 </head>
 <body>
@@ -42,23 +43,27 @@
 		</a>
 	</nav>
 	<div class="mui-content">
-		<form class="mui-input-group">
-			<div class="mui-input-row">
-				<input type="text" class="mui-input-clear" placeholder="请输入收货人姓名">
-			</div>
-			<div class="mui-input-row">
-				<input type="password" class="mui-input-clear" placeholder="请输入邮政邮编">
-			</div>
-			<div class="mui-input-row">
-				<input type="password" class="mui-input-clear" placeholder="请选择省市区">
-			</div>
-			<div class="mui-input-row">
-				<input type="password" class="mui-input-clear" placeholder="请输入详细地址">
-			</div>
-			<div class="mui-button-row">
-				<button type="button" class="mui-btn mui-btn-primary" >确认</button>
-			</div>
+		<form class="mui-input-group" id="editForm">
+
 		</form>
 	</div>
+
+	<script type="text/html" id="editTpl">
+		<div class="mui-input-row">
+			<input type="text" class="mui-input-clear" placeholder="请输入收货人姓名" name="recipients" value="{{recipients}}">
+		</div>
+		<div class="mui-input-row">
+			<input type="text" class="mui-input-clear" placeholder="请输入邮政邮编" name="postcode" value="{{postCode}}">
+		</div>
+		<div class="mui-input-row">
+			<input type="text" class="mui-input-clear" placeholder="请选择省市区" id="selectCity" readonly value="{{address}}">  <!--readonly是让选择框的光标消失-->
+		</div>
+		<div class="mui-input-row">
+			<input type="text" class="mui-input-clear" placeholder="请输入详细地址" name="addressDetail" value="{{addressDetail}}">
+		</div>
+		<div class="mui-button-row">
+			<button type="button" class="mui-btn mui-btn-primary" id="addAddress" >确认</button>
+		</div>
+	</script>
 </body>
 </html>

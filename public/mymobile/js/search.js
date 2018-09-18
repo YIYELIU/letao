@@ -61,8 +61,12 @@ $(function () {
         $('#history-box').html("");
         //清空本地存储中数据
         localStorage.removeItem("keyArr");
+    });
 
-
+    //优化
+    $('#history-box').on('click', function () {
+        console.log($(this).text());
+        location.href = 'search-result.html?keyword=' + $(this).text();
     })
 
 

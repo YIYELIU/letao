@@ -41,10 +41,10 @@
 		<div class="mui-scroll">
 			<ul class="mui-table-view">
 				<li class="mui-table-view-cell" style="text-align: center;">
-					<a href="addAddress.html">添加收货地址</a>
+					<a href="addAddress.html?isEdit=0">添加收货地址</a>
 				</li>
 			</ul>
-			<ul class="mui-table-view" id="address">
+			<ul class="mui-table-view" id="address-box">
 
 			</ul>
 		</div>
@@ -52,13 +52,19 @@
 	<script type="text/html" id="addressTpl">
 		{{each result}}
 		<li class="mui-table-view-cell mui-media">
-			<a href="javascript:;">
-				<div class="mui-media-body">
+			<div class="mui-slider-right mui-disabled">
+				<a href="javascript:;"
+				   class="mui-btn mui-btn-blue edit-btn"
+				   data-id='{{$value.id}}'>编辑</a>
+				<a href="javascript:;"
+				   class="mui-btn mui-btn-red delete-btn"
+				   data-id='{{$value.id}}'>删除</a>
+			</div>
+				<div class="mui-media-body mui-slider-handle">
 					邮编: {{$value.postCode}}
 					收货人: {{$value.recipients}}
 					<p class='mui-ellipsis'>{{$value.address}}{{$value.addressDetail}}</p>
 				</div>
-			</a>
 		</li>
 		{{/each}}
 	</script>
